@@ -1,0 +1,30 @@
+diff --git a/src/extension-support/extension-manager.js b/src/extension-support/extension-manager.js
+index a5e2c4e..14d0acc 100644
+--- a/src/extension-support/extension-manager.js
++++ b/src/extension-support/extension-manager.js
+@@ -23,7 +23,8 @@ const builtinExtensions = {
+     ev3: () => require('../extensions/scratch3_ev3'),
+     makeymakey: () => require('../extensions/scratch3_makeymakey'),
+     boost: () => require('../extensions/scratch3_boost'),
+-    gdxfor: () => require('../extensions/scratch3_gdx_for')
++    gdxfor: () => require('../extensions/scratch3_gdx_for'),
++    yourScratchExtension: () => require('../extensions/your-scratch-extension')
+ };
+
+ /**
+diff --git a/webpack.config.js b/webpack.config.js
+index 6a8a3b3..ed3fa2b 100644
+--- a/webpack.config.js
++++ b/webpack.config.js
+@@ -36,7 +36,10 @@ const base = {
+             })
+         ]
+     },
+-    plugins: []
++    plugins: [],
++    resolve: {
++        symlinks: false
++    }
+ };
+
+ module.exports = [
