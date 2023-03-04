@@ -50,7 +50,7 @@ class Scratch3YourExtension {
                     arguments: {
                         MY_NUMBER: {
                             // default value before the user sets something
-                            default: 123,
+                            defaultValue: 123,
 
                             // type/shape of the parameter - choose from:
                             //     ArgumentType.ANGLE - numeric value with an angle picker
@@ -63,7 +63,7 @@ class Scratch3YourExtension {
                         },
                         MY_STRING: {
                             // default value before the user sets something
-                            default: 'hello',
+                            defaultValue: 'hello',
 
                             // type/shape of the parameter - choose from:
                             //     ArgumentType.ANGLE - numeric value with an angle picker
