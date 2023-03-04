@@ -27,6 +27,10 @@ cd $SCRATCH_SRC_HOME/scratch-vm
 git apply $DIR/patches/scratch-vm.patch
 cd $SCRATCH_SRC_HOME/scratch-gui
 git apply $DIR/patches/scratch-gui.patch
+mkdir src/lib/libraries/extensions/yourextension
+cd src/lib/libraries/extensions/yourextension
+ln -s $DIR/your-extension-background.png your-extension-background.png
+ln -s $DIR/your-extension-icon.png your-extension-icon.png
 
 echo "Marking the Scratch source as customized"
 touch $SCRATCH_SRC_HOME/patched

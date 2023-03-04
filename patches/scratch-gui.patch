@@ -1,16 +1,26 @@
 diff --git a/src/lib/libraries/extensions/index.jsx b/src/lib/libraries/extensions/index.jsx
-index ba18b91..4d578e3 100644
+index ba18b91..e316f38 100644
 --- a/src/lib/libraries/extensions/index.jsx
 +++ b/src/lib/libraries/extensions/index.jsx
-@@ -47,6 +47,15 @@ import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
+@@ -1,6 +1,9 @@
+ import React from 'react';
+ import {FormattedMessage} from 'react-intl';
+ 
++import yourExtensionInsetIconURL from './yourextension/your-extension-icon.png';
++import yourExtensionIconURL from './yourextension/your-extension-background.png';
++
+ import musicIconURL from './music/music.png';
+ import musicInsetIconURL from './music/music-small.svg';
+ 
+@@ -47,6 +50,15 @@ import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
  import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
  
  export default [
 +    {
 +        name: 'Your Extension',
 +        extensionId: 'yourScratchExtension',
-+        iconURL: musicIconURL,
-+        insetIconURL: musicInsetIconURL,
++        iconURL: yourExtensionIconURL,
++        insetIconURL: yourExtensionInsetIconURL,
 +        description: 'Your custom Scratch extension',
 +        featured: true,
 +        disabled: false

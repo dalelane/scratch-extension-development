@@ -5,9 +5,10 @@
 3. [Go into Codespaces](#launch-codespaces)
 4. [Setup repository](#setup-your-repository)
 5. [Create your extension](#create-your-extension)
-6. [Publish your Scratch extension](#publish-your-finished-extension)
-7. [Stop your codespace](#stop-your-codespace)
-8. [Save your code](#save-your-changes)
+6. [Customize the Extension Menu](#customize-the-extensions-menu)
+7. [Publish your Scratch extension](#publish-your-finished-extension)
+8. [Stop your codespace](#stop-your-codespace)
+9. [Save your code](#save-your-changes)
 
 ---
 
@@ -232,6 +233,16 @@ Then re-build and test again by typing:
 Once you have finished, stop your Scratch test by pressing **Control-C** in the terminal.
 
 ![screenshot](./docs/57-stop-test.png)
+
+---
+
+## Customize the Extensions menu
+
+Your extension is represented in the Scratch Extensions menu using the graphics `your-extension-background.png` and `your-extension-icon.png`.
+
+Edit these files to better represent your Scratch extension.
+
+(I recommend keeping the dimensions of the images the same as they currently are to best fit in the menu).
 
 ---
 
