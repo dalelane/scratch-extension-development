@@ -1,14 +1,17 @@
 # Develop your own Scratch extension
 
-1. [Create an account on GitHub](#create-an-account-on-github)
-2. [Create your Scratch repository](#create-your-scratch-development-repository)
-3. [Go into Codespaces](#launch-codespaces)
-4. [Setup repository](#setup-your-repository)
-5. [Create your extension](#create-your-extension)
-6. [Customize the Extension Menu](#customize-the-extensions-menu)
-7. [Publish your Scratch extension](#publish-your-finished-extension)
-8. [Stop your codespace](#stop-your-codespace)
-9. [Save your code](#save-your-changes)
+- **Create your account**
+  - [Create an account on GitHub](#create-an-account-on-github)
+- **Setup your development environment**
+  - [Create your Scratch repository](#create-your-scratch-development-repository)
+  - [Go into Codespaces](#launch-codespaces)
+  - [Setup repository](#setup-your-repository)
+- **Create your extension**
+  - [Create your extension](#create-your-extension)
+  - [Customize the Extension Menu](#customize-the-extensions-menu)
+- **Publish your extension**
+  - [Publish your Scratch extension](#publish-your-finished-extension)
+  - [Stop your codespace](#stop-your-codespace)
 
 ---
 
@@ -103,7 +106,7 @@ Open the `your-scratch-extension/index.js` file.
 
 ![screenshot](./docs/40-extension-template.png)
 
-The instructions here will show you how to write an extension that can lookup the title of a book by it's ISBN number.
+The instructions here will show you how to write an extension that can lookup the title of a book from the ISBN number.
 
 The instructions will go through the template JavaScript one section at a time.
 
@@ -238,11 +241,35 @@ Once you have finished, stop your Scratch test by pressing **Control-C** in the 
 
 ## Customize the Extensions menu
 
-Your extension is represented in the Scratch Extensions menu using the graphics `your-extension-background.png` and `your-extension-icon.png`.
+The extensions menu includes images to represent each extension. Each extension has a large background image, and a small inset icon.
 
-Edit these files to better represent your Scratch extension.
+Placeholder images are provided for your extension.
 
-(I recommend keeping the dimensions of the images the same as they currently are to best fit in the menu).
+![screenshot](./docs/58-extensions.png)
+
+If you're happy with these, you can [skip to the next step](#publish-your-finished-extension).
+
+If you want to customize these, you can edit the image files `your-extension-background.png` and `your-extension-icon.png` to better represent your Scratch extension.
+
+![screenshot](./docs/59-extensions-icons.png)
+
+I recommend keeping the dimensions of the images the same as they currently are to best fit in the menu.
+
+Note that you will need to rebuild your extension after making changes to these files.
+
+```sh
+./1-build.sh
+```
+
+And to see the new menu in action you will want to start your private test instance again.
+
+```sh
+./2-run-private.sh
+```
+
+Before proceeding to the next step, make sure you have stopped your private test instance of Scratch by pressing **Control-C** in the terminal.
+
+![screenshot](./docs/57-stop-test.png)
 
 ---
 
@@ -284,7 +311,3 @@ On your repository page, click on **Code** -> **Codespaces** -> **Stop codespace
 ![screenshot](./docs/70-stop.png)
 
 ---
-
-## Further development
-
-If you want to make additional changes, you can start your codespace again and continue from where you left off.
