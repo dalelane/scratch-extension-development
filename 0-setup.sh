@@ -21,13 +21,17 @@ cd $SCRATCH_SRC_HOME/scratch-vm/src/extensions
 ln -s $DIR/your-scratch-extension your-scratch-extension
 
 echo "Patching Scratch source to enable extension"
-# patch -d $SCRATCH_SRC_HOME/scratch-vm < $DIR/scratch-vm.patch
-# patch -d $SCRATCH_SRC_HOME/scratch-gui < $DIR/scratch-gui.patch
 cd $SCRATCH_SRC_HOME/scratch-vm
 git apply $DIR/patches/scratch-vm.patch
+mv package.json $DIR/dependencies/package.json
+ln -s $DIR/dependencies/package.json .
+mv package-lock.json $DIR/dependencies/package-lock.json
+ln -s $DIR/dependencies/package-lock.json .
 cd $SCRATCH_SRC_HOME/scratch-gui
 git apply $DIR/patches/scratch-gui.patch
-mkdir src/lib/libraries/extensions/yourextension
+
+echo "Copying in the Scratch extension files"
+mkdir -p src/lib/libraries/extensions/yourextension
 cd src/lib/libraries/extensions/yourextension
 ln -s $DIR/your-extension-background.png your-extension-background.png
 ln -s $DIR/your-extension-icon.png your-extension-icon.png
