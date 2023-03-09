@@ -9,6 +9,12 @@ if [ -z "$SCRATCH_SRC_HOME" ]; then
     exit 1
 fi
 
+echo "Checking that Scratch has been patched"
+if [ ! -f "$SCRATCH_SRC_HOME/patched" ]; then
+    echo "Scratch has not yet been patched. Run ./0-setup.sh"
+    exit 1
+fi
+
 echo "Adding new dependency"
 cd $SCRATCH_SRC_HOME/scratch-vm
 npm install --save $MODULE
