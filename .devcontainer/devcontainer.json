@@ -1,6 +1,6 @@
 {
   "name": "Scratch Extension development environment",
-  "image": "dalelane/scratch-extension-devenv:202303041118",
+  "image": "dalelane/scratch-extension-devenv:202303091844",
   "features": {
   },
   "forwardPorts": [ 8000 ]

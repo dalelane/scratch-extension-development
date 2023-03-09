@@ -5,10 +5,11 @@
 - **Setup your development environment**
   - [Create your Scratch repository](#create-your-scratch-development-repository)
   - [Go into Codespaces](#launch-codespaces)
-  - [Setup repository](#setup-your-repository)
+  - [Set up repository](#set-up-your-repository)
 - **Create your extension**
-  - [Create your extension](#create-your-extension)
+  - [Create an extension - using live data from a REST API](#create-your-extension)
   - [Customize the Extension Menu](#customize-the-extensions-menu)
+  - [Create an extension - using a JavaScript module from npm](#create-an-extension-using-npm-dependencies)
 - **Publish your extension**
   - [Publish your Scratch extension](#publish-your-finished-extension)
   - [Stop your codespace](#stop-your-codespace)
@@ -17,7 +18,7 @@
 
 ## Create an account on GitHub
 
-_**If you already have a GitHub account, you can [skip to step 2](#create-your-scratch-development-repository).**_
+_**If you already have a GitHub account, you can [skip to the next step](#create-your-scratch-development-repository).**_
 
 Go to https://github.com
 
@@ -83,7 +84,7 @@ Your codespace is ready for use.
 
 ---
 
-## Setup your repository
+## Set up your repository
 
 In the terminal at the bottom of the window, run:
 ```sh
@@ -102,13 +103,13 @@ You only need to do this once (but it is safe if you run it again).
 
 ## Create your extension
 
+**The instructions here will show you how to write an extension that can lookup the title of a book from the ISBN number, using a REST API.**
+
+The instructions will go through the template JavaScript one section at a time.
+
 Open the `your-scratch-extension/index.js` file.
 
 ![screenshot](./docs/40-extension-template.png)
-
-The instructions here will show you how to write an extension that can lookup the title of a book from the ISBN number.
-
-The instructions will go through the template JavaScript one section at a time.
 
 No changes are needed in the `constructor` for this extension.
 
@@ -190,7 +191,7 @@ Your code is now ready to test.
 
 In the terminal at the bottom of the window, run:
 ```sh
-./1-build.sh
+./2-build.sh
 ```
 
 ![screenshot](./docs/50-build.png)
@@ -202,7 +203,7 @@ This can take a minute to run.
 
 In the terminal at the bottom of the window, run:
 ```sh
-./2-run-private.sh
+./3-run-private.sh
 ```
 
 ![screenshot](./docs/52-run.png)
@@ -229,13 +230,99 @@ Make your code changes.
 
 Then re-build and test again by typing:
 ```sh
-./1-build.sh
-./2-run-private.sh
+./2-build.sh
+./3-run-private.sh
 ```
 
 Once you have finished, stop your Scratch test by pressing **Control-C** in the terminal.
 
 ![screenshot](./docs/57-stop-test.png)
+
+---
+
+## Create an extension using npm dependencies
+
+**The instructions here will show you how to write an extension that can estimate the number of syllables in some English text, using a JavaScript module.**
+
+The instructions will go through the template JavaScript one section at a time.
+
+Select a module from https://www.npmjs.com - for this example, I'm using `syllable`.
+
+![screenshot](./docs/80-npmjs.png)
+
+Run `./1-add-dependency.sh` with the name of the module you've selected.
+```sh
+./1-add-dependency.sh syllable
+```
+
+Open the `your-scratch-extension/index.js` file.
+
+![screenshot](./docs/40-extension-template.png)
+
+Edit the `constructor` function to load the module.
+```js
+constructor (runtime) {
+  import('syllable')
+    .then((syllableModule) => {
+      this.syllable = syllableModule.syllable;
+    });
+}
+```
+
+Edit the `getInfo()` function to provide a description of your blocks.
+
+```js
+getInfo () {
+  return {
+    // unique ID for your extension
+    id: 'yourScratchExtension',
+
+    // name displayed in the Scratch UI
+    name: 'Natural language',
+
+    // colours to use for your extension blocks
+    color1: '#000099',
+    color2: '#660066',
+
+    // your Scratch blocks
+    blocks: [
+      {
+        // function where your code logic lives
+        opcode: 'myFirstBlock',
+
+        // type of block
+        blockType: BlockType.REPORTER,
+
+        // label to display on the block
+        text: 'Syllables in [MY_TEXT]',
+
+        // true if this block should end a stack
+        terminal: false,
+
+        // arguments used in the block
+        arguments: {
+          MY_TEXT: {
+            defaultValue: 'Hello World',
+
+            // type/shape of the parameter
+            type: ArgumentType.STRING
+          }
+        }
+      }
+    ]
+  };
+}
+```
+
+Edit the `myFirstBlock` function implementation to return a count of syllables using the loaded npm module.
+
+```js
+myFirstBlock ({ MY_TEXT }) {
+  return this.syllable(MY_TEXT);
+}
+```
+
+Your code is now ready to test. You can [follow the test instructions above](#launch-a-private-test-of-your-scratch-extension) to do this.
 
 ---
 
@@ -258,13 +345,13 @@ I recommend keeping the dimensions of the images the same as they currently are 
 Note that you will need to rebuild your extension after making changes to these files.
 
 ```sh
-./1-build.sh
+./2-build.sh
 ```
 
 And to see the new menu in action you will want to start your private test instance again.
 
 ```sh
-./2-run-private.sh
+./3-run-private.sh
 ```
 
 Before proceeding to the next step, make sure you have stopped your private test instance of Scratch by pressing **Control-C** in the terminal.
@@ -277,7 +364,7 @@ Before proceeding to the next step, make sure you have stopped your private test
 
 In the terminal at the bottom of the window, run:
 ```sh
-./3-publish.sh
+./4-publish.sh
 ```
 
 ![screenshot](./docs/60-publish.png)

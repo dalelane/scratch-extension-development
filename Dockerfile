@@ -26,8 +26,8 @@ ENV SCRATCH_SRC_HOME=/usr/app
 
 # copy extension development files
 WORKDIR /usr/app
-COPY 1-build.sh .
-COPY 2-run-private.sh .
+COPY 2-build.sh .
+COPY 3-run-private.sh .
 
 # initial default build
-RUN ./1-build.sh
+RUN ./2-build.sh
