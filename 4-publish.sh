@@ -15,11 +15,12 @@ fi
 
 echo "Commit any changes"
 git add your-scratch-extension
+git add dependencies
 git commit -m "Update"
 git push origin master
 
 echo "Building the Scratch fork"
-./1-build.sh
+./2-build.sh
 
 echo "Preparing a gh-pages branch"
 DEVBRANCH=$(git rev-parse --abbrev-ref HEAD)

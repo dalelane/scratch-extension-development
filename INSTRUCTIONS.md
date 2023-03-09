@@ -255,6 +255,14 @@ Run `./1-add-dependency.sh` with the name of the module you've selected.
 ./1-add-dependency.sh syllable
 ```
 
+![screenshot](./docs/81-add-dependency.png)
+
+As long as you have spelled it exactly correctly, it will update the dependencies for your private Scratch build to include the new module.
+
+_If you want to add multiple dependencies, you can run this script multiple times. Running the script with the name of a dependency you have already added is safe, but not necessary._
+
+![screenshot](./docs/82-npm-install-complete.png)
+
 Open the `your-scratch-extension/index.js` file.
 
 ![screenshot](./docs/40-extension-template.png)
@@ -268,6 +276,8 @@ constructor (runtime) {
     });
 }
 ```
+
+![screenshot](./docs/83-constructor.png)
 
 Edit the `getInfo()` function to provide a description of your blocks.
 
@@ -314,6 +324,8 @@ getInfo () {
 }
 ```
 
+![screenshot](./docs/84-get-info.png)
+
 Edit the `myFirstBlock` function implementation to return a count of syllables using the loaded npm module.
 
 ```js
@@ -322,7 +334,13 @@ myFirstBlock ({ MY_TEXT }) {
 }
 ```
 
+![screenshot](./docs/85-firstblock.png)
+
+
 Your code is now ready to test. You can [follow the test instructions above](#launch-a-private-test-of-your-scratch-extension) to do this.
+
+
+![screenshot](./docs/86-private-test.png)
 
 ---
 
@@ -381,11 +399,13 @@ https://<YOUR-GITHUB-USERNAME>.github.io/<YOUR-REPOSITORY-NAME>/scratch
 
 ![screenshot](./docs/62-live.png)
 
-_Note that this can sometimes take a minute to go live, so if the link doesn't work, it's worth waiting a moment and trying again. If it still doesn't work, check you have got the URL correct._
+_Note that this can sometimes take a minute to go live, so if the link doesn't work, it's worth waiting a minute and trying again. (But if it still doesn't work, check you have got the URL correct!)_
 
 You can give this URL to your students.
 
 ![screenshot](./docs/63-testing.png)
+
+![screenshot](./docs/87-publish.png)
 
 ---
 

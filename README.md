@@ -2,7 +2,7 @@
 
 _Work in progress... come back soon!_
 
-This is a template that I'm creating for my session at the [Raspberry Pi Clubs Conference](https://www.raspberrypi.org/clubs-conference-2023/) later this month!
+This is a template that I'm creating for [my session](https://www.eventbrite.co.uk/e/workshop-write-your-own-scratch-extension-tickets-533502218497) at the [Raspberry Pi Clubs Conference](https://www.raspberrypi.org/clubs-conference-2023/) later this month!
 
 It will be a workshop for how to create Scratch extensions.
 
