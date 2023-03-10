@@ -7,9 +7,9 @@
   - [Go into Codespaces](#launch-codespaces)
   - [Set up repository](#set-up-your-repository)
 - **Create your extension**
-  - [Create an extension - using live data from a REST API](#create-your-extension)
+  - [Create a block using live data from an online API](#create-a-block-using-live-data)
+  - [Create a block using a JavaScript module from npm](#create-a-block-using-a-javascript-module)
   - [Customize the Extension Menu](#customize-the-extensions-menu)
-  - [Create an extension - using a JavaScript module from npm](#create-an-extension-using-npm-dependencies)
 - **Publish your extension**
   - [Publish your Scratch extension](#publish-your-finished-extension)
   - [Stop your codespace](#stop-your-codespace)
@@ -101,9 +101,9 @@ You only need to do this once (but it is safe if you run it again).
 
 ---
 
-## Create your extension
+## Create a block using live data
 
-**The instructions here will show you how to write an extension that can lookup the title of a book from the ISBN number, using a REST API.**
+**The instructions here will show you how to write an extension that can lookup the title of a book from the ISBN number, using an online API.**
 
 The instructions will go through the template JavaScript one section at a time.
 
@@ -111,11 +111,7 @@ Open the `your-scratch-extension/index.js` file.
 
 ![screenshot](./docs/40-extension-template.png)
 
-No changes are needed in the `constructor` for this extension.
-
-![screenshot](./docs/41-constructor.png)
-
-Edit the `getInfo()` function to provide a description of your blocks.
+Edit the `getInfo()` function to provide a description of your first block.
 
 ```js
 getInfo () {
@@ -124,7 +120,7 @@ getInfo () {
     id: 'yourScratchExtension',
 
     // name displayed in the Scratch UI
-    name: 'ISBN Lookup',
+    name: 'Demo',
 
     // colours to use for your extension blocks
     color1: '#000099',
@@ -196,10 +192,7 @@ In the terminal at the bottom of the window, run:
 
 ![screenshot](./docs/50-build.png)
 
-This can take a minute to run.
-
-![screenshot](./docs/51-building.png)
-
+This can take a minute to run. Wait for this to complete.
 
 In the terminal at the bottom of the window, run:
 ```sh
@@ -222,6 +215,16 @@ Either way, click on **Open in browser**.
 
 This is a private copy of Scratch that only you can access. You can use this to test your new extension.
 
+Click on the **Extensions** button.
+
+![screenshot](./docs/55-extensions-button.png)
+
+You should see your extension added to the menu. Click on it.
+
+![screenshot](./docs/55-extensions-menu.png)
+
+Make a simple Scratch project using your extension.
+
 ![screenshot](./docs/56-testing.png)
 
 If you need to make a change, stop your Scratch test by pressing **Control-C** in the terminal.
@@ -240,7 +243,7 @@ Once you have finished, stop your Scratch test by pressing **Control-C** in the 
 
 ---
 
-## Create an extension using npm dependencies
+## Create a block using a JavaScript module
 
 **The instructions here will show you how to write an extension that can estimate the number of syllables in some English text, using a JavaScript module.**
 
@@ -263,9 +266,7 @@ _If you want to add multiple dependencies, you can run this script multiple time
 
 ![screenshot](./docs/82-npm-install-complete.png)
 
-Open the `your-scratch-extension/index.js` file.
-
-![screenshot](./docs/40-extension-template.png)
+Open the `your-scratch-extension/index.js` file again.
 
 Edit the `constructor` function to load the module.
 ```js
@@ -279,7 +280,9 @@ constructor (runtime) {
 
 ![screenshot](./docs/83-constructor.png)
 
-Edit the `getInfo()` function to provide a description of your blocks.
+Edit the `getInfo()` function to add a second block, after the block we defined before.
+
+The complete `getInfo()` function will now contain:
 
 ```js
 getInfo () {
@@ -288,7 +291,7 @@ getInfo () {
     id: 'yourScratchExtension',
 
     // name displayed in the Scratch UI
-    name: 'Natural language',
+    name: 'Demo',
 
     // colours to use for your extension blocks
     color1: '#000099',
@@ -299,6 +302,29 @@ getInfo () {
       {
         // function where your code logic lives
         opcode: 'myFirstBlock',
+
+        // type of block
+        blockType: BlockType.REPORTER,
+
+        // label to display on the block
+        text: 'Title for ISBN book [BOOK_NUMBER]',
+
+        // true if this block should end a stack
+        terminal: false,
+
+        // arguments used in the block
+        arguments: {
+          BOOK_NUMBER: {
+            defaultValue: 1718500564,
+
+            // type/shape of the parameter
+            type: ArgumentType.NUMBER
+          }
+        }
+      },
+      {
+        // function where your code logic lives
+        opcode: 'mySecondBlock',
 
         // type of block
         blockType: BlockType.REPORTER,
@@ -326,10 +352,10 @@ getInfo () {
 
 ![screenshot](./docs/84-get-info.png)
 
-Edit the `myFirstBlock` function implementation to return a count of syllables using the loaded npm module.
+Add a `mySecondBlock` function implementation to return a count of syllables using the loaded npm module.
 
 ```js
-myFirstBlock ({ MY_TEXT }) {
+mySecondBlock ({ MY_TEXT }) {
   return this.syllable(MY_TEXT);
 }
 ```
@@ -337,10 +363,35 @@ myFirstBlock ({ MY_TEXT }) {
 ![screenshot](./docs/85-firstblock.png)
 
 
-Your code is now ready to test. You can [follow the test instructions above](#launch-a-private-test-of-your-scratch-extension) to do this.
+Your code is now ready to test.
 
+As before, build your code:
+
+```sh
+./2-build.sh
+```
+
+![screenshot](./docs/86-build.png)
+
+Then run a private instance of Scratch to test it.
+
+```sh
+./3-run-private.sh
+```
 
 ![screenshot](./docs/86-private-test.png)
+
+When prompted, click on the **Open in browser** button to open your private Scratch instance.
+
+![screenshot](./docs/86-open.png)
+
+You can make a simple Scratch script to verify that your new block is working.
+
+![screenshot](./docs/87-test.png)
+
+When you've finished your test, close the Scratch window, and then stop the test instance by pressing **Control-C** in the Terminal.
+
+![screenshot](./docs/88-stop.png)
 
 ---
 
@@ -405,8 +456,6 @@ You can give this URL to your students.
 
 ![screenshot](./docs/63-testing.png)
 
-![screenshot](./docs/87-publish.png)
-
 ---
 
 ## Stop your codespace
@@ -416,5 +465,9 @@ You only need your codespace running while you are developing your extension. On
 On your repository page, click on **Code** -> **Codespaces** -> **Stop codespace**.
 
 ![screenshot](./docs/70-stop.png)
+
+Your published Scratch instance, with your extensions, will still be accessible after you do this.
+
+![screenshot](./docs/63-testing.png)
 
 ---
