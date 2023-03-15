@@ -109,6 +109,8 @@ The instructions will go through the template JavaScript one section at a time.
 
 Open the `your-scratch-extension/index.js` file.
 
+Review the sample extension to see the sort of options that are available to you.
+
 ![screenshot](./docs/40-extension-template.png)
 
 Edit the `getInfo()` function to provide a description of your first block.
@@ -137,9 +139,6 @@ getInfo () {
 
         // label to display on the block
         text: 'Title for ISBN book [BOOK_NUMBER]',
-
-        // true if this block should end a stack
-        terminal: false,
 
         // arguments used in the block
         arguments: {
@@ -309,9 +308,6 @@ getInfo () {
         // label to display on the block
         text: 'Title for ISBN book [BOOK_NUMBER]',
 
-        // true if this block should end a stack
-        terminal: false,
-
         // arguments used in the block
         arguments: {
           BOOK_NUMBER: {
@@ -331,9 +327,6 @@ getInfo () {
 
         // label to display on the block
         text: 'Syllables in [MY_TEXT]',
-
-        // true if this block should end a stack
-        terminal: false,
 
         // arguments used in the block
         arguments: {

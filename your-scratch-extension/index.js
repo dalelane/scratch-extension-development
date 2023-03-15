@@ -1,6 +1,6 @@
 const BlockType = require('../../extension-support/block-type');
 const ArgumentType = require('../../extension-support/argument-type');
-
+const TargetType = require('../../extension-support/target-type');
 
 class Scratch3YourExtension {
 
@@ -45,6 +45,12 @@ class Scratch3YourExtension {
 
                     // true if this block should end a stack
                     terminal: false,
+
+                    // where this block should be available for code - choose from:
+                    //   TargetType.SPRITE - for code in sprites
+                    //   TargetType.STAGE  - for code on the stage / backdrop
+                    // remove one of these if this block doesn't apply to both
+                    filter: [ TargetType.SPRITE, TargetType.STAGE ],
 
                     // arguments used in the block
                     arguments: {
