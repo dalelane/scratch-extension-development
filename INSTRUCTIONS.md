@@ -441,9 +441,13 @@ Your Scratch fork will be live and publicly accessible at:
 https://<YOUR-GITHUB-USERNAME>.github.io/<YOUR-REPOSITORY-NAME>/scratch
 ```
 
-![screenshot](./docs/62-live.png)
+For example, in my screenshots I created a GitHub account with the username `scratch-extensions-demo` and when I forked the repository, I named it `my-demo`.
+
+![screenshot](./docs/64-public-url.png)
 
 _Note that this can sometimes take a minute to go live, so if the link doesn't work, it's worth waiting a minute and trying again. (But if it still doesn't work, check you have got the URL correct!)_
+
+![screenshot](./docs/62-live.png)
 
 You can give this URL to your students.
 
