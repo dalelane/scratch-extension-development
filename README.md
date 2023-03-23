@@ -1,13 +1,11 @@
 # Development environment for creating unofficial Scratch extensions
 
-_Work in progress... come back soon!_
+This is a repo for [my workshop](https://www.eventbrite.co.uk/e/workshop-write-your-own-scratch-extension-tickets-533502218497) at the [Raspberry Pi Clubs Conference](https://www.raspberrypi.org/clubs-conference-2023/) - about how to create your own custom blocks for Scratch.
 
-This is a template that I'm creating for [my session](https://www.eventbrite.co.uk/e/workshop-write-your-own-scratch-extension-tickets-533502218497) at the [Raspberry Pi Clubs Conference](https://www.raspberrypi.org/clubs-conference-2023/) later this month!
+This repo has [instructions](./INSTRUCTIONS.md), a template extension, and an online hosted development environment, so you can create your own Scratch extensions using only a web browser. No local developmnent tools or other software is needed.
 
-It will be a workshop for how to create Scratch extensions.
+Go to [INSTRUCTIONS.md](./INSTRUCTIONS.md) to find a written step-by-step guide, or watch me step through the process in [this video](https://youtu.be/bX9ZqhuxtnI).
 
-I'll use this repository to provide a template extension and online hosted development environment, so you can create your own Scratch extensions using only a web browser - no local developmnent tools or other software needed.
+If you make something with this, please [let me know](https://github.com/dalelane/scratch-extension-development/issues) - I'd love to hear about it.
 
--- Dale
-
-PS - If you're too impatient to wait, you can see [my current draft instructions](./INSTRUCTIONS.md) but keep in mind that they're not finished yet!
+<iframe width="616" height="495" src="https://www.youtube.com/embed/bX9ZqhuxtnI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
