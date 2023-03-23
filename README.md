@@ -8,4 +8,4 @@ Go to [INSTRUCTIONS.md](./INSTRUCTIONS.md) to find a written step-by-step guide,
 
 If you make something with this, please [let me know](https://github.com/dalelane/scratch-extension-development/issues) - I'd love to hear about it.
 
-<iframe width="616" height="495" src="https://www.youtube.com/embed/bX9ZqhuxtnI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[![screenshot](./docs/63-testing.png)](https://youtu.be/bX9ZqhuxtnI)
